@@ -1,0 +1,11 @@
+FROM javascript_mynode
+
+ARG exercise
+
+ENV exercise=${exercise}
+
+ADD $exercise $exercise
+
+#RUN eslint --fix ./${exercise}.js
+
+CMD jasmine ${exercise}/${exercise}.spec.js

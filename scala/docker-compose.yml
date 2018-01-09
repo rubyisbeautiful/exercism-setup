@@ -1,0 +1,19 @@
+---
+
+version: "3"
+
+services:
+  myscala:
+    build:
+      context: .
+      args:
+        http_proxy:
+        no_proxy:
+  exercise:
+    build:
+      dockerfile: Dockerfile.exercise
+      context: .
+      args:
+        exercise: hello-world
+    depends_on:
+      - myscala

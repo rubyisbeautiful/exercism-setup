@@ -1,0 +1,11 @@
+FROM scala_myscala
+
+ARG exercise
+
+ENV exercise=${exercise}
+
+ADD $exercise $exercise
+
+WORKDIR /exercism/scala/${exercise}
+
+CMD sbt test
