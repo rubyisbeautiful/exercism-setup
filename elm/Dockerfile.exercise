@@ -1,0 +1,17 @@
+FROM elm_mynode
+
+ARG exercise
+
+ENV exercise=${exercise} \
+    PATH="$PATH:/exercism/elm/${exercise}/node_modules/.bin"
+
+ADD $exercise $exercise
+
+WORKDIR $exercise
+
+RUN npm install \
+ && cd tests \
+ && elm-package install -y \
+ && cd ..
+
+CMD elm-test --watch

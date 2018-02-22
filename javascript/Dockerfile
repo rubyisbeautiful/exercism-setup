@@ -1,4 +1,6 @@
-FROM node:6
+ARG NODE_VERSION=7
+
+FROM node:${NODE_VERSION}
 
 ENV http_proxy=${http_proxy} \
     https_proxy=${http_proxy} \
