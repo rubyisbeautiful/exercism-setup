@@ -10,3 +10,28 @@ docker-compose build --build-arg exercise=foo exercise
 docker-compose run exercise
 
 ``` 
+
+For each of these, I have an override to mount my current exercism dir
+as a volume, like this:
+
+```$bash
+  exercise:
+    volumes:
+      - ~/exercism/elm:/exercism/elm
+
+```
+
+For something like Elm, which installs packages with NPM, you have to
+run install commands once:
+
+```$bash
+docker-compose run exercise npm install
+docker-compose run exercise npm test
+```  
+
+Then, you can use the `watch` script to finish (which is automatic) to
+watch your local dir as you work on your code:
+
+```$bash
+docker-compose up
+```
