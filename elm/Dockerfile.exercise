@@ -5,13 +5,14 @@ ARG exercise
 ENV exercise=${exercise} \
     PATH="$PATH:/exercism/elm/${exercise}/node_modules/.bin"
 
-ADD $exercise $exercise
+COPY post-build.sh /usr/local/bin/post-build.sh
+
+RUN chmod a+x /usr/local/bin/post-build.sh
 
 WORKDIR $exercise
 
-RUN npm install \
- && cd tests \
- && elm-package install -y \
- && cd ..
+VOLUME /exercism/elm
+
+ENTRYPOINT [ "/usr/local/bin/post-build.sh" ]
 
 CMD elm-test --watch

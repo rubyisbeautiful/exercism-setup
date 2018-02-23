@@ -21,16 +21,8 @@ as a volume, like this:
 
 ```
 
-For something like Elm, which installs packages with NPM, you have to
-run install commands once:
-
-```$bash
-docker-compose run exercise npm install
-docker-compose run exercise npm test
-```  
-
-Then, you can use the `watch` script to finish (which is automatic) to
-watch your local dir as you work on your code:
+For something like Elm, there is a built in script to watch for code changes
+and execute tests, so after building just run it thusly:
 
 ```$bash
 docker-compose up
