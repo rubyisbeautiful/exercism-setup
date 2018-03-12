@@ -8,4 +8,4 @@ ADD $exercise $exercise
 
 WORKDIR /exercism/scala/${exercise}
 
-CMD sbt test
+CMD sbt ~test

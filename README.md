@@ -21,7 +21,7 @@ as a volume, like this:
 
 ```
 
-For something like Elm, there is a built in script to watch for code changes
+For some languages, like Scala and Elm, there are built in scripts to watch for code changes
 and execute tests, so after building just run it thusly:
 
 ```$bash
